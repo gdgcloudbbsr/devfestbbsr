@@ -62,7 +62,7 @@
 
                 <form>
                     <input type="email" name="email" id="email" placeholder="Please enter your email address">
-                    <button type="submit">
+                    <button type="button" onclick="SendMail()">
                         Notify Me
                     </button>
                 </form>
@@ -111,6 +111,47 @@
         integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="main.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script>
+        //Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCHEsMlre_AkZidgiVFtj4NIQKCfQpnCGw",
+            authDomain: "gdg-website-de031.firebaseapp.com",
+            databaseURL: "https://gdg-website-de031-default-rtdb.firebaseio.com",
+            projectId: "gdg-website-de031",
+            storageBucket: "gdg-website-de031.appspot.com",
+            messagingSenderId: "938429421577",
+            appId: "1:938429421577:web:b5df3d28b05bc9d3dd40d8",
+            measurementId: "G-1MQHY43GV5"
+        };
+        firebase.initializeApp(firebaseConfig);
+
+        var database = firebase.database();
+    </script>
+
+    <script>
+        function SendMail() {
+            var email = document.querySelector("#email").value;
+
+            if (email) {
+                var emailRef = database.ref("emails").push();
+                
+                emailRef.set({
+                    email: email,
+                    // timestamp: firebase.database.ServerValue.TIMESTAMP
+                }, function (error) {
+                    if (error) {
+                        swal("Oops", "Something went wrong!", "error")
+                    } else {
+                        swal("Success", "You will be notified soon.", "success");
+                        document.querySelector("#email").value = "";
+                    }
+                });
+            }
+        }
+    </script>
 </body>
 
 
