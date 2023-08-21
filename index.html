@@ -127,7 +127,6 @@
             measurementId: "G-1MQHY43GV5"
         };
         firebase.initializeApp(firebaseConfig);
-
         var database = firebase.database();
     </script>
 
@@ -137,7 +136,7 @@
 
             if (email) {
                 var emailRef = database.ref("emails").push();
-                
+
                 emailRef.set({
                     email: email,
                     // timestamp: firebase.database.ServerValue.TIMESTAMP
