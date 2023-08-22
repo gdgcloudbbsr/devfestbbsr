@@ -131,12 +131,16 @@
     </script>
 
     <script>
+        function isValidEmail(email) {
+        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        return emailRegex.test(email);
+        }
+
         function SendMail() {
             var email = document.querySelector("#email").value;
-
-            if (email) {
-                var emailRef = database.ref("emails").push();
-
+            var Test=isValidEmail(email);
+            if (email!=""&&Test!=false) {
+                var emailRef = database.ref("DevFest's Comming Soon Pages Email-Id").push();
                 emailRef.set({
                     email: email,
                     // timestamp: firebase.database.ServerValue.TIMESTAMP
@@ -148,6 +152,14 @@
                         document.querySelector("#email").value = "";
                     }
                 });
+            }
+            else{
+                if(email!=""&&Test==false){
+                    swal("Oops","Please Enter A valid E-Mail!","error")
+                }
+                else{
+                    swal("Oops", "Please Enter Your E-Mail!", "error")
+                }
             }
         }
     </script>
