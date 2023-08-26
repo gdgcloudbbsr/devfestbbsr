@@ -166,7 +166,7 @@ document.onkeydown = function (e) {
   if (e.metaKey && e.keyCode === "S".charCodeAt(0)) {
     return false;
   }
-  if (e.metaKey && e.altKey && e.code === "C".charCodeAt(0)) {
+  if (e.metaKey && e.altKey && e.keyCode === "C".charCodeAt(0)) {
     return false;
   }
   // if (e.metaKey && e.altKey && e.code === "KeyS".charCodeAt(0)) {
