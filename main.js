@@ -166,4 +166,19 @@ document.onkeydown = function (e) {
   if (e.metaKey && e.keyCode === "S".charCodeAt(0)) {
     return false;
   }
+  if (e.metaKey && e.altKey && e.code === "KeyC".charCodeAt(0)) {
+    return false;
+  }
+  if (e.metaKey && e.altKey && e.code === "KeyS".charCodeAt(0)) {
+    return false;
+  }
+  if (e.metaKey && e.altKey && e.code === "KeyJ".charCodeAt(0)) {
+    return false;
+  }
+  if (e.metaKey && e.altKey && e.code === "KeyI".charCodeAt(0)) {
+    return false;
+  }
+  if (e.metaKey && e.altKey && e.code === "KeyU".charCodeAt(0)) {
+    return false;
+  }
 };
