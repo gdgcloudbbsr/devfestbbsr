@@ -4,7 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GDG Bhubaneswar</title>
+    <title>DevFest 2023 Bhubaneswar</title>
+    <meta name="description"
+        content="DevFest 2023 Bhubaneswar is the annual tech conference for developers of Bhubaneswar hosted by Google Developer Group Bhubaneswar.">
+    <meta name="keywords" content="DevFest 2023 Bhubaneswar, Google Developer Group Bhubaneswar, DevFest 2023,DevFest">
+    <meta name="author" content="GDG Bhubaneswar">
+
+
+    <meta property="og:title" content="DevFest 2023 Bhubaneswar">
+    <meta property="og:description"
+        content="DevFest 2023 Bhubaneswar, Google Developer Group Bhubaneswar, DevFest 2023,DevFest">
+    <meta property="og:image" content="https://pbs.twimg.com/profile_images/1235166120673284102/mO5TlKXK_400x400.jpg">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DevFest 2023 Bhubaneswar">
+    <meta name="twitter:description"
+        content="DevFest 2023 Bhubaneswar, Google Developer Group Bhubaneswar, DevFest 2023,DevFest">
+    <meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1235166120673284102/mO5TlKXK_400x400.jpg">
+    <meta name="twitter:url" content="https://twitter.com/gdgbbsr">
+
     <link rel="shortcut icon" href="./assets/code.svg" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <link rel="preload" href="./assets/video.webm" as="video" type="video/webm" />
@@ -132,14 +151,14 @@
 
     <script>
         function isValidEmail(email) {
-        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-        return emailRegex.test(email);
+            const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            return emailRegex.test(email);
         }
 
         function SendMail() {
             var email = document.querySelector("#email").value;
-            var Test=isValidEmail(email);
-            if (email!=""&&Test!=false) {
+            var Test = isValidEmail(email);
+            if (email != "" && Test != false) {
                 var emailRef = database.ref("DevFest's Comming Soon Pages Email-Id").push();
                 emailRef.set({
                     email: email,
@@ -153,11 +172,11 @@
                     }
                 });
             }
-            else{
-                if(email!=""&&Test==false){
-                    swal("Oops","Please Enter A valid E-Mail!","error")
+            else {
+                if (email != "" && Test == false) {
+                    swal("Oops", "Please Enter A valid E-Mail!", "error")
                 }
-                else{
+                else {
                     swal("Oops", "Please Enter Your E-Mail!", "error")
                 }
             }
